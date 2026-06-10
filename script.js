@@ -258,55 +258,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==========================================================================
-    // Contact Form Handler (Simulation)
-    // ==========================================================================
-    const contactForm = document.getElementById('contact-form');
-    const formFeedback = document.getElementById('form-feedback');
-    const submitBtn = document.getElementById('form-submit');
-    const submitBtnSpan = submitBtn.querySelector('span');
-    const submitBtnIcon = submitBtn.querySelector('i');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // Set loading state
-            submitBtn.disabled = true;
-            submitBtnSpan.textContent = 'Sending...';
-            submitBtnIcon.className = 'fa-solid fa-spinner fa-spin';
-
-            // Simulate server response delay
-            setTimeout(() => {
-                // Get form details
-                const name = document.getElementById('form-name').value;
-                const email = document.getElementById('form-email').value;
-                const subject = document.getElementById('form-subject').value;
-                const message = document.getElementById('form-message').value;
-
-                if (name && email && subject && message) {
-                    // Show success feedback
-                    formFeedback.textContent = `Thank you, ${name}! Your message has been sent successfully.`;
-                    formFeedback.className = 'form-feedback-message success';
-                    
-                    // Reset form
-                    contactForm.reset();
-                } else {
-                    // Show error feedback
-                    formFeedback.textContent = 'Oops! Please fill in all fields before sending.';
-                    formFeedback.className = 'form-feedback-message error';
-                }
-
-                // Reset button state
-                submitBtn.disabled = false;
-                submitBtnSpan.textContent = 'Send Message';
-                submitBtnIcon.className = 'fa-solid fa-paper-plane';
-
-                // Automatically hide feedback message after 6 seconds
-                setTimeout(() => {
-                    formFeedback.style.display = 'none';
-                }, 6000);
-            }, 1500);
-        });
-    }
 });

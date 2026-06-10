@@ -820,14 +820,16 @@ section {
    Contact Section
    ========================================================================== */
 .contact-grid {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
+    display: flex;
+    justify-content: center;
     gap: 40px;
 }
 
 .contact-info-panel {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 600px;
 }
 .contact-info-panel h3 {
     font-size: 1.6rem;
@@ -1085,11 +1087,6 @@ footer {
     .about-grid {
         grid-template-columns: 1fr;
         gap: 50px;
-    }
-    
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
     }
 }
 
